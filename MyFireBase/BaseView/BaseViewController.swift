@@ -52,7 +52,8 @@ extension BaseViewController {
     func addGradientBackgroundColor() {
         gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.view.bounds
-        gradientLayer.colors = [UIColor.blue.cgColor, UIColor.purple.cgColor]
+        
+        gradientLayer.colors = [primaryColor.cgColor, secondaryColor.cgColor]
         self.view.layer.addSublayer(gradientLayer)
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }

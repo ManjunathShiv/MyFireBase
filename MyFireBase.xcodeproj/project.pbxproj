@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		194876CE219A7F0100C48360 /* InitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194876CD219A7F0100C48360 /* InitalViewController.swift */; };
 		196CA2CA219979E800504FDB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196CA2C9219979E800504FDB /* SignupViewController.swift */; };
 		196CA2CC21997C1000504FDB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196CA2CB21997C1000504FDB /* LoginViewModel.swift */; };
 		196CA2CF21997E5000504FDB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196CA2CE21997E5000504FDB /* Constants.swift */; };
@@ -19,10 +20,12 @@
 		19DE0A91218C2C9E0089D174 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19DE0A90218C2C9E0089D174 /* Assets.xcassets */; };
 		19DE0A94218C2C9E0089D174 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19DE0A92218C2C9E0089D174 /* LaunchScreen.storyboard */; };
 		19DE0A9C218C2CD50089D174 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19DE0A9B218C2CD50089D174 /* GoogleService-Info.plist */; };
+		19E954C7219A8AAA000755C4 /* RoundedWhiteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E954C6219A8AAA000755C4 /* RoundedWhiteButton.swift */; };
 		D58047352B0FD2696BBB3702 /* Pods_MyFireBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC3FEF66F6707DB55A343F91 /* Pods_MyFireBase.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		194876CD219A7F0100C48360 /* InitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitalViewController.swift; sourceTree = "<group>"; };
 		196CA2C9219979E800504FDB /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		196CA2CB21997C1000504FDB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		196CA2CE21997E5000504FDB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -37,6 +40,7 @@
 		19DE0A93218C2C9E0089D174 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		19DE0A95218C2C9E0089D174 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19DE0A9B218C2CD50089D174 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		19E954C6219A8AAA000755C4 /* RoundedWhiteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedWhiteButton.swift; sourceTree = "<group>"; };
 		9B94EFFCED075D9DDF4AF0A6 /* Pods-MyFireBase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFireBase.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFireBase/Pods-MyFireBase.release.xcconfig"; sourceTree = "<group>"; };
 		AC230F8FF4AEBBC7C617E2A8 /* Pods-MyFireBase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFireBase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFireBase/Pods-MyFireBase.debug.xcconfig"; sourceTree = "<group>"; };
 		EC3FEF66F6707DB55A343F91 /* Pods_MyFireBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFireBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		194876CF219A7F0500C48360 /* InitialView */ = {
+			isa = PBXGroup;
+			children = (
+				194876CD219A7F0100C48360 /* InitalViewController.swift */,
+			);
+			path = InitialView;
+			sourceTree = "<group>";
+		};
 		196CA2CD21997C1600504FDB /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,7 +116,9 @@
 			children = (
 				19DE0A89218C2C9D0089D174 /* AppDelegate.swift */,
 				196CA2CE21997E5000504FDB /* Constants.swift */,
+				19E954C6219A8AAA000755C4 /* RoundedWhiteButton.swift */,
 				19838D26219985D000A0DC28 /* BaseView */,
+				194876CF219A7F0500C48360 /* InitialView */,
 				196CA2CD21997C1600504FDB /* Login */,
 				19838D29219987D800A0DC28 /* SignUp */,
 				19DE0A8D218C2C9D0089D174 /* Main.storyboard */,
@@ -265,8 +279,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				196CA2CF21997E5000504FDB /* Constants.swift in Sources */,
+				19E954C7219A8AAA000755C4 /* RoundedWhiteButton.swift in Sources */,
 				196CA2CC21997C1000504FDB /* LoginViewModel.swift in Sources */,
 				19838D28219987D400A0DC28 /* SignUpViewModel.swift in Sources */,
+				194876CE219A7F0100C48360 /* InitalViewController.swift in Sources */,
 				196CA2CA219979E800504FDB /* SignupViewController.swift in Sources */,
 				19DE0A8C218C2C9D0089D174 /* LoginViewController.swift in Sources */,
 				19838D25219985CB00A0DC28 /* BaseViewController+BarButton.swift in Sources */,
