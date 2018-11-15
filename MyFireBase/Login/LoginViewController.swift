@@ -12,25 +12,41 @@ import RxSwift
 
 class LoginViewController: BaseViewController {
 
-    @IBOutlet weak var usernameTF: UITextField!
+    @IBOutlet weak var continueStackView: UIStackView!
+    
+    @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var continueButton: RoundedWhiteButton!
     @IBOutlet weak var passwordTF: UITextField!
     var loginVM : LoginViewModel = LoginViewModel()
     var disposeBag = DisposeBag()
+    let activityView : UIActivityIndicatorView = UIActivityIndicatorView(style: .white)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.setUpActivityView()
         self.setupBinding()
     }
     
+    func setUpActivityView() {
+        activityView.color = UIColor.white
+        activityView.frame = CGRect(x: 0, y: 0, width: 50.0, height: 50.0)
+        continueButton.center = continueStackView.center
+        
+        activityView.center = self.continueButton.center
+        activityView.hidesWhenStopped = true
+        
+        self.view.addSubview(activityView)
+    }
+    
     func setupBinding() {
-        loginVM.username.bind(to: usernameTF.rx.text).disposed(by: disposeBag)
+        loginVM.email.bind(to: emailTF.rx.text).disposed(by: disposeBag)
         loginVM.password.bind(to: passwordTF.rx.text).disposed(by: disposeBag)
 
-        usernameTF.rx.text
+        emailTF.rx.text
             .orEmpty
-            .bind(to : loginVM.username)
+            .bind(to : loginVM.email)
             .disposed(by: disposeBag)
         
         passwordTF.rx.text
@@ -41,6 +57,9 @@ class LoginViewController: BaseViewController {
         continueButton.rx.controlEvent(UIControlEvents.touchUpInside)
             .subscribe(onNext: {[weak self] _ in
                 guard let weakself = self else {return}
+                weakself.continueButton.setTitle("", for: .normal)
+                weakself.activityView.startAnimating()
+                weakself.continueButton.bringSubviewToFront(weakself.activityView)
             }, onError: { (error) in
                 
             }, onCompleted: {
@@ -51,7 +70,6 @@ class LoginViewController: BaseViewController {
         loginVM.isValid
             .bind(to: continueButton.rx.isEnabled)
             .disposed(by: disposeBag)
-        
     }
 }
 

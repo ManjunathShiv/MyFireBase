@@ -12,7 +12,7 @@ import UIKit
 
 class RoundedWhiteButton:UIButton {
     
-    var highlightedColor = UIColor.darkText
+    var highlightedColor = UIColor.clear
     {
         didSet {
             if isHighlighted {
@@ -20,7 +20,7 @@ class RoundedWhiteButton:UIButton {
             }
         }
     }
-    var defaultColor = UIColor.lightText
+    var defaultColor = UIColor.clear
     {
         didSet {
             if !isHighlighted {

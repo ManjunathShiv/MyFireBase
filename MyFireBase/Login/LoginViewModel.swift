@@ -10,11 +10,11 @@ import Foundation
 import RxSwift
 
 struct LoginViewModel{
-    var username = BehaviorSubject<String>(value: "")
+    var email = BehaviorSubject<String>(value: "")
     var password = BehaviorSubject<String>(value: "")
     
     var isValid : Observable<Bool>{
-        return Observable.combineLatest(self.username.asObservable(), self.password.asObservable())
+        return Observable.combineLatest(self.email.asObservable(), self.password.asObservable())
         { (username, password) in
             return username.isValidEmail
                 && password.count > 0
