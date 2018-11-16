@@ -83,13 +83,18 @@ class SignupViewController: BaseViewController {
     }
     
     func createUser() {
-        Auth.auth().createUser(withEmail: signupVM.email, password: signupVM.password) { user, error in
+        guard let username = usernameTF.text else { return }
+        guard let email = emailTF.text else { return }
+        guard let password = passwordTF.text else { return }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { user, error in
             if error == nil && user != nil {
                 print("User created!")
-                
+                self.activityView.stopAnimating()
+                self.continueButton.setTitle("Continue", for: .normal)
                 let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                 changeRequest?.displayName = username
-                
+
                 changeRequest?.commitChanges { error in
                     if error == nil {
                         print("User display name changed!")

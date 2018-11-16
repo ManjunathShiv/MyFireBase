@@ -9,6 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import Firebase
 
 class LoginViewController: BaseViewController {
 
@@ -60,6 +61,8 @@ class LoginViewController: BaseViewController {
                 weakself.continueButton.setTitle("", for: .normal)
                 weakself.activityView.startAnimating()
                 weakself.continueButton.bringSubviewToFront(weakself.activityView)
+                weakself.loginUser()
+                
             }, onError: { (error) in
                 
             }, onCompleted: {
@@ -70,6 +73,21 @@ class LoginViewController: BaseViewController {
         loginVM.isValid
             .bind(to: continueButton.rx.isEnabled)
             .disposed(by: disposeBag)
+    }
+    
+    func loginUser() {
+        guard let email = self.emailTF.text else { return }
+        guard let password = self.passwordTF.text else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { user, error in
+            if error == nil && user != nil {
+                print("Login Successful")
+                self.activityView.stopAnimating()
+                self.continueButton.setTitle("Continue", for: .normal)
+            } else {
+                print("Error logging in: \(error!.localizedDescription)")
+            }
+        }
     }
 }
 

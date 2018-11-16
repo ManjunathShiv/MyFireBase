@@ -8,6 +8,7 @@ target 'MyFireBase' do
   # Pods for MyFireBase
 
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
   pod 'RxCocoa', '~> 4.0'
   pod 'RxSwift', '~> 4.0'
   pod 'RxKeyboard'
