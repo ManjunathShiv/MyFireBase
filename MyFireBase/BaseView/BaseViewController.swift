@@ -11,7 +11,7 @@ import UIKit
 
 @IBDesignable
 class BaseViewController: UIViewController {
-    //MARK: - Properties
+    //MARK: - Properties    
     @IBInspectable
     var shouldShowNavigationBar: Bool = false
     
@@ -26,15 +26,15 @@ class BaseViewController: UIViewController {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        if shouldAddGradientBackground {
-            self.addGradientBackgroundColor()
-        }
-        self.addTapGestureToHideKeyboard()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setupNavigationBar()
+        if shouldAddGradientBackground {
+            self.addGradientBackgroundColor()
+        }
+        self.addTapGestureToHideKeyboard()
     }
     
     //MARK: - Status Bar

@@ -70,9 +70,9 @@ class LoginViewController: BaseViewController {
             })
             .disposed(by:disposeBag)
         
-        loginVM.isValid
-            .bind(to: continueButton.rx.isEnabled)
-            .disposed(by: disposeBag)
+//        loginVM.isValid
+//            .bind(to: continueButton.rx.isEnabled)
+//            .disposed(by: disposeBag)
     }
     
     func loginUser() {
@@ -83,7 +83,8 @@ class LoginViewController: BaseViewController {
             if error == nil && user != nil {
                 print("Login Successful")
                 self.activityView.stopAnimating()
-                self.continueButton.setTitle("Continue", for: .normal)
+                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
+                self.navigationController?.pushViewController(vc!, animated: true)
             } else {
                 print("Error logging in: \(error!.localizedDescription)")
             }

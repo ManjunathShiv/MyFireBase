@@ -12,9 +12,9 @@
 		196CA2CC21997C1000504FDB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196CA2CB21997C1000504FDB /* LoginViewModel.swift */; };
 		196CA2CF21997E5000504FDB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196CA2CE21997E5000504FDB /* Constants.swift */; };
 		19838D23219985B600A0DC28 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19838D22219985B600A0DC28 /* BaseViewController.swift */; };
-		19838D25219985CB00A0DC28 /* BaseViewController+BarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19838D24219985CB00A0DC28 /* BaseViewController+BarButton.swift */; };
 		19838D28219987D400A0DC28 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19838D27219987D400A0DC28 /* SignUpViewModel.swift */; };
 		198F2ABA219E755500A8A007 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 198F2AB9219E755400A8A007 /* GoogleService-Info.plist */; };
+		198F2ABC219E872700A8A007 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198F2ABB219E872700A8A007 /* HomeViewController.swift */; };
 		19DE0A8A218C2C9D0089D174 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DE0A89218C2C9D0089D174 /* AppDelegate.swift */; };
 		19DE0A8C218C2C9D0089D174 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19DE0A8B218C2C9D0089D174 /* LoginViewController.swift */; };
 		19DE0A8F218C2C9D0089D174 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19DE0A8D218C2C9D0089D174 /* Main.storyboard */; };
@@ -30,9 +30,9 @@
 		196CA2CB21997C1000504FDB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		196CA2CE21997E5000504FDB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		19838D22219985B600A0DC28 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		19838D24219985CB00A0DC28 /* BaseViewController+BarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseViewController+BarButton.swift"; sourceTree = "<group>"; };
 		19838D27219987D400A0DC28 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		198F2AB9219E755400A8A007 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		198F2ABB219E872700A8A007 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		19DE0A86218C2C9D0089D174 /* MyFireBase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFireBase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		19DE0A89218C2C9D0089D174 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19DE0A8B218C2C9D0089D174 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				19838D22219985B600A0DC28 /* BaseViewController.swift */,
-				19838D24219985CB00A0DC28 /* BaseViewController+BarButton.swift */,
 			);
 			path = BaseView;
 			sourceTree = "<group>";
@@ -91,6 +90,14 @@
 				19838D27219987D400A0DC28 /* SignUpViewModel.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		198F2ABE219E873200A8A007 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				198F2ABB219E872700A8A007 /* HomeViewController.swift */,
+			);
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 		19DE0A7D218C2C9D0089D174 = {
@@ -121,6 +128,7 @@
 				194876CF219A7F0500C48360 /* InitialView */,
 				196CA2CD21997C1600504FDB /* Login */,
 				19838D29219987D800A0DC28 /* SignUp */,
+				198F2ABE219E873200A8A007 /* HomeView */,
 				19DE0A8D218C2C9D0089D174 /* Main.storyboard */,
 				19DE0A90218C2C9E0089D174 /* Assets.xcassets */,
 				19DE0A92218C2C9E0089D174 /* LaunchScreen.storyboard */,
@@ -287,7 +295,7 @@
 				194876CE219A7F0100C48360 /* InitalViewController.swift in Sources */,
 				196CA2CA219979E800504FDB /* SignupViewController.swift in Sources */,
 				19DE0A8C218C2C9D0089D174 /* LoginViewController.swift in Sources */,
-				19838D25219985CB00A0DC28 /* BaseViewController+BarButton.swift in Sources */,
+				198F2ABC219E872700A8A007 /* HomeViewController.swift in Sources */,
 				19DE0A8A218C2C9D0089D174 /* AppDelegate.swift in Sources */,
 				19838D23219985B600A0DC28 /* BaseViewController.swift in Sources */,
 			);
