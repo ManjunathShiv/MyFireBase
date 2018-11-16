@@ -10,6 +10,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import Firebase
 
 class SignupViewController: BaseViewController {
     
@@ -67,6 +68,7 @@ class SignupViewController: BaseViewController {
                 weakself.continueButton.setTitle("", for: .normal)
                 weakself.activityView.startAnimating()
                 weakself.continueButton.bringSubviewToFront(weakself.activityView)
+                weakself.createUser()
                 }, onError: { (error) in
                     
             }, onCompleted: {
@@ -78,6 +80,29 @@ class SignupViewController: BaseViewController {
             .bind(to: continueButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
+    }
+    
+    func createUser() {
+        Auth.auth().createUser(withEmail: signupVM.email, password: signupVM.password) { user, error in
+            if error == nil && user != nil {
+                print("User created!")
+                
+                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                changeRequest?.displayName = username
+                
+                changeRequest?.commitChanges { error in
+                    if error == nil {
+                        print("User display name changed!")
+                        self.dismiss(animated: false, completion: nil)
+                    } else {
+                        print("Error: \(error!.localizedDescription)")
+                    }
+                }
+                
+            } else {
+                print("Error: \(error!.localizedDescription)")
+            }
+        }
     }
     
 }
