@@ -11,17 +11,20 @@ import UIKit
 import RxCocoa
 import RxSwift
 import Firebase
+import FirebaseDatabase
 
 class SignupViewController: BaseViewController {
     
     @IBOutlet weak var continueStackView: UIStackView!
-    
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var continueButton: RoundedWhiteButton!
     @IBOutlet weak var passwordTF: UITextField!
+    
     var signupVM : SignUpViewModel = SignUpViewModel()
     var disposeBag = DisposeBag()
+    var reference:DatabaseReference!
+    
     let activityView : UIActivityIndicatorView = UIActivityIndicatorView(style: .white)
     
     override func viewDidLoad() {
@@ -29,6 +32,7 @@ class SignupViewController: BaseViewController {
         // Do any additional setup after loading the view, typically from a nib.
         self.setUpActivityView()
         self.setupBinding()
+        reference = Database.database().reference()
     }
     
     func setUpActivityView() {
@@ -89,9 +93,14 @@ class SignupViewController: BaseViewController {
         
         Auth.auth().createUser(withEmail: email, password: password) { user, error in
             if error == nil && user != nil {
-                print("User created!")
                 self.activityView.stopAnimating()
                 self.continueButton.setTitle("Continue", for: .normal)
+                
+                self.reference.child("Users").childByAutoId().setValue(username, forKey: "username")
+                self.reference.child("Users").childByAutoId().setValue(email, forKey: "email")
+                self.reference.child("Users").childByAutoId().setValue(password, forKey: "password")
+                
+                print("User created!")
                 let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
                 changeRequest?.displayName = username
 
@@ -105,6 +114,8 @@ class SignupViewController: BaseViewController {
                 }
                 
             } else {
+                self.activityView.stopAnimating()
+                self.continueButton.setTitle("Continue", for: .normal)
                 print("Error: \(error!.localizedDescription)")
             }
         }

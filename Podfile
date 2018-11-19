@@ -12,5 +12,6 @@ target 'MyFireBase' do
   pod 'RxCocoa', '~> 4.0'
   pod 'RxSwift', '~> 4.0'
   pod 'RxKeyboard'
+  pod 'Firebase/Database'
 
 end
