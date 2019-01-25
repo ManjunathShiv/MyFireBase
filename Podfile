@@ -13,5 +13,7 @@ target 'MyFireBase' do
   pod 'RxSwift', '~> 4.0'
   pod 'RxKeyboard'
   pod 'Firebase/Database'
-
+  pod 'FBSDKLoginKit'
+  pod 'GoogleSignIn'
+  
 end

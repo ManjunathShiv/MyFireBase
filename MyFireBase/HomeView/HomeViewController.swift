@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import Firebase
+import FBSDKLoginKit
+import GoogleSignIn
 
 class HomeViewController: BaseViewController {
     
@@ -19,7 +21,25 @@ class HomeViewController: BaseViewController {
     }
     
     @IBAction func logoutButtonPresssed() {
-        try! Auth.auth().signOut()
-        self.navigationController?.popToRootViewController(animated: true)
+        
+        guard Auth.auth().currentUser == nil else {
+            try! Auth.auth().signOut()
+            self.navigationController?.popToRootViewController(animated: true)
+            return
+        }
+        
+        do {
+            if FBSDKAccessToken.currentAccessTokenIsActive(){
+                try Auth.auth().signOut()
+                FBSDKAccessToken.setCurrent(nil)
+                self.navigationController?.popToRootViewController(animated: true)
+            } else {
+                GIDSignIn.sharedInstance()?.signOut()
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+            
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
     }
 }

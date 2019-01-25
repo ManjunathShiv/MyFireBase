@@ -13,13 +13,13 @@ struct LoginViewModel{
     var email = BehaviorSubject<String>(value: "Power@gmail.com")
     var password = BehaviorSubject<String>(value: "Philips@123")
     
-//    var isValid : Observable<Bool>{
-//        return Observable.combineLatest(self.email.asObservable(), self.password.asObservable())
-//        { (username, password) in
-//            return username.isValidEmail
-//                && password.count > 0
-//        }
-//    }
+    var isValid : Observable<Bool>{
+        return Observable.combineLatest(self.email.asObservable(), self.password.asObservable())
+        { (username, password) in
+            return username.isValidEmail
+                && password.count > 0
+        }
+    }
 }
 
 extension String {

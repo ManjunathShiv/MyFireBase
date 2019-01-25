@@ -10,10 +10,15 @@ import UIKit
 import RxCocoa
 import RxSwift
 import Firebase
+import FBSDKLoginKit
+import FBSDKCoreKit
+import GoogleSignIn
 
-class LoginViewController: BaseViewController {
+class LoginViewController: BaseViewController, GIDSignInUIDelegate, GIDSignInDelegate {
 
     @IBOutlet weak var continueStackView: UIStackView!
+    @IBOutlet weak var facebookLoginButton : FBSDKLoginButton!
+    @IBOutlet weak var googleLoginButton : GIDSignInButton!
     
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var continueButton: RoundedWhiteButton!
@@ -21,6 +26,7 @@ class LoginViewController: BaseViewController {
     var loginVM : LoginViewModel = LoginViewModel()
     var disposeBag = DisposeBag()
     let activityView : UIActivityIndicatorView = UIActivityIndicatorView(style: .white)
+    var googleCredential : AuthCredential? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +34,21 @@ class LoginViewController: BaseViewController {
         
         self.setUpActivityView()
         self.setupBinding()
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        if let _ = FBSDKAccessToken.current() {
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
+            self.navigationController?.pushViewController(vc!, animated: true)
+        } else if googleCredential != nil {
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
+        
     }
     
     func setUpActivityView() {
@@ -70,9 +91,21 @@ class LoginViewController: BaseViewController {
             })
             .disposed(by:disposeBag)
         
-//        loginVM.isValid
-//            .bind(to: continueButton.rx.isEnabled)
-//            .disposed(by: disposeBag)
+        loginVM.isValid
+            .bind(to: continueButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        facebookLoginButton.rx.controlEvent(UIControlEvents.touchUpInside)
+            .subscribe(onNext: {[weak self] _ in
+                guard let weakself = self else {return}
+                weakself.facebookLoginButton.readPermissions = ["public_profile", "email"]
+            }).dispose()
+        
+        googleLoginButton.rx.controlEvent(UIControlEvents.touchUpInside)
+            .subscribe(onNext: { _ in
+                GIDSignIn.sharedInstance().signIn()
+            }).dispose()
+        
     }
     
     func loginUser() {
@@ -87,8 +120,30 @@ class LoginViewController: BaseViewController {
                 self.navigationController?.pushViewController(vc!, animated: true)
             } else {
                 print("Error logging in: \(error!.localizedDescription)")
+                self.continueButton.setTitle("Continue", for: .normal)
+                self.activityView.stopAnimating()
+                MyAlertController.shared.showAlert(.loginFailed)
             }
         }
     }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if error != nil {
+            return
+        }
+        
+        guard let authentication = user.authentication else { return }
+        googleCredential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                                accessToken: authentication.accessToken)
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
+    }
+
 }
 

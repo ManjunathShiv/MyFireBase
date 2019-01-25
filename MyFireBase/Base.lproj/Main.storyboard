@@ -113,10 +113,10 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UY7-nm-xB0">
-                                <rect key="frame" x="20" y="788" width="374" height="50"/>
+                                <rect key="frame" x="20" y="461" width="374" height="38"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJH-Kl-Tsb" customClass="RoundedWhiteButton" customModule="MyFireBase" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="38"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                                         <state key="normal" title="Continue">
@@ -125,22 +125,58 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="wn2-cC-oql"/>
+                                    <constraint firstAttribute="height" constant="38" id="7NS-VE-dLD"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oOf-2d-BxL" userLabel="Facebook Stack View">
+                                <rect key="frame" x="20" y="519" width="374" height="38"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqa-MH-QVH" customClass="FBSDKLoginButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="38"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="023-D0-U2i"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="lph-Ll-yM0"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OTa-vZ-b4j" userLabel="Google Stack View">
+                                <rect key="frame" x="20" y="567" width="374" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T1I-Z0-6me" customClass="GIDSignInButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="5AQ-zc-GmF"/>
+                                    <constraint firstAttribute="height" constant="40" id="au3-7t-JfU"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1zY-XE-DhA" firstAttribute="top" secondItem="ug0-Iy-X59" secondAttribute="bottom" constant="40" id="2BY-U9-jJ3"/>
-                            <constraint firstItem="UY7-nm-xB0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="3Bj-Ii-33U"/>
                             <constraint firstItem="Wkv-Us-7J6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="47s-6w-DPB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UY7-nm-xB0" secondAttribute="bottom" constant="24" id="I2J-V0-nNd"/>
+                            <constraint firstItem="oOf-2d-BxL" firstAttribute="top" secondItem="UY7-nm-xB0" secondAttribute="bottom" constant="20" id="5KV-Ls-MRo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OTa-vZ-b4j" secondAttribute="trailing" constant="20" id="GPJ-gk-5qG"/>
+                            <constraint firstItem="UY7-nm-xB0" firstAttribute="top" secondItem="1zY-XE-DhA" secondAttribute="bottom" constant="40" id="KyX-ja-cGk"/>
                             <constraint firstItem="ug0-Iy-X59" firstAttribute="top" secondItem="Wkv-Us-7J6" secondAttribute="bottom" constant="12" id="OrI-aW-yvr"/>
                             <constraint firstItem="Wkv-Us-7J6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="R6U-Pb-8No"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UY7-nm-xB0" secondAttribute="trailing" constant="20" id="UMO-9W-zkQ"/>
+                            <constraint firstItem="UY7-nm-xB0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="TxM-jl-gBj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UY7-nm-xB0" secondAttribute="trailing" constant="20" id="arI-Ra-xdz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1zY-XE-DhA" secondAttribute="trailing" constant="16" id="cYA-pe-EE3"/>
                             <constraint firstItem="Wkv-Us-7J6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="86" id="fiE-3u-j8t"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oOf-2d-BxL" secondAttribute="trailing" constant="20" id="lAj-UL-yja"/>
                             <constraint firstItem="ug0-Iy-X59" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="n7d-RQ-T5H"/>
+                            <constraint firstItem="oOf-2d-BxL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="r79-XK-Pl4"/>
+                            <constraint firstItem="OTa-vZ-b4j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="s4g-D3-jIh"/>
+                            <constraint firstItem="OTa-vZ-b4j" firstAttribute="top" secondItem="oOf-2d-BxL" secondAttribute="bottom" constant="10" id="u34-Kg-KA0"/>
                             <constraint firstItem="1zY-XE-DhA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="wBv-gt-8DD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ug0-Iy-X59" secondAttribute="trailing" constant="16" id="zG5-7J-ERY"/>
                         </constraints>
@@ -156,6 +192,8 @@
                         <outlet property="continueButton" destination="UJH-Kl-Tsb" id="mo5-sK-pIa"/>
                         <outlet property="continueStackView" destination="UY7-nm-xB0" id="vyK-rR-EG6"/>
                         <outlet property="emailTF" destination="U9g-yL-hac" id="KxS-rh-iIc"/>
+                        <outlet property="facebookLoginButton" destination="eqa-MH-QVH" id="qhh-jD-GlC"/>
+                        <outlet property="googleLoginButton" destination="T1I-Z0-6me" id="teW-qS-QlD"/>
                         <outlet property="passwordTF" destination="GeW-0l-0b2" id="fny-a1-Jaw"/>
                     </connections>
                 </viewController>
@@ -429,6 +467,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7z-hj-vV4">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="57.5"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="LoginButton" label="Login"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -439,6 +478,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRP-F4-N8O">
                                         <rect key="frame" x="0.0" y="77.5" width="382" height="57.5"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="SignupButton" label="Signup">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <state key="normal" title="Signup">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -469,10 +511,14 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="shouldShowNavigationBar" value="NO"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outlet property="authenticateButton" destination="l7z-hj-vV4" id="LcQ-Lt-JgF"/>
+                        <outlet property="registerButton" destination="vRP-F4-N8O" id="xGW-vy-0DP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nE5-2J-G2Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245.59999999999999" y="23.838080959520241"/>
+            <point key="canvasLocation" x="244.92753623188409" y="23.4375"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vRM-Ry-Uwb">

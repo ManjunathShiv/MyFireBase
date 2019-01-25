@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190DBD9B21A51D4000203AA5 /* MyAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190DBD9A21A51D4000203AA5 /* MyAlertController.swift */; };
 		194876CE219A7F0100C48360 /* InitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194876CD219A7F0100C48360 /* InitalViewController.swift */; };
 		196CA2CA219979E800504FDB /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196CA2C9219979E800504FDB /* SignupViewController.swift */; };
 		196CA2CC21997C1000504FDB /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196CA2CB21997C1000504FDB /* LoginViewModel.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		190DBD9A21A51D4000203AA5 /* MyAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlertController.swift; sourceTree = "<group>"; };
 		194876CD219A7F0100C48360 /* InitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitalViewController.swift; sourceTree = "<group>"; };
 		196CA2C9219979E800504FDB /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		196CA2CB21997C1000504FDB /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				19838D22219985B600A0DC28 /* BaseViewController.swift */,
+				190DBD9A21A51D4000203AA5 /* MyAlertController.swift */,
 			);
 			path = BaseView;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				19DE0A83218C2C9D0089D174 /* Frameworks */,
 				19DE0A84218C2C9D0089D174 /* Resources */,
 				3DD1591DDB631F8ADA1100DF /* [CP] Embed Pods Frameworks */,
+				CFAEA8C6D31EEF0D242633EC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -256,7 +260,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MyFireBase/Pods-MyFireBase-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -269,7 +277,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -283,6 +295,28 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyFireBase/Pods-MyFireBase-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CFAEA8C6D31EEF0D242633EC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MyFireBase/Pods-MyFireBase-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyFireBase/Pods-MyFireBase-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -292,6 +326,7 @@
 			files = (
 				196CA2CF21997E5000504FDB /* Constants.swift in Sources */,
 				19E954C7219A8AAA000755C4 /* RoundedWhiteButton.swift in Sources */,
+				190DBD9B21A51D4000203AA5 /* MyAlertController.swift in Sources */,
 				196CA2CC21997C1000504FDB /* LoginViewModel.swift in Sources */,
 				19838D28219987D400A0DC28 /* SignUpViewModel.swift in Sources */,
 				194876CE219A7F0100C48360 /* InitalViewController.swift in Sources */,
@@ -446,15 +481,17 @@
 			baseConfigurationReference = AC230F8FF4AEBBC7C617E2A8 /* Pods-MyFireBase.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6S52777MVT;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = KZ254T2RPN;
 				INFOPLIST_FILE = MyFireBase/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Manjunath.MyFireBase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = WildCardDevelopment;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -465,15 +502,17 @@
 			baseConfigurationReference = 9B94EFFCED075D9DDF4AF0A6 /* Pods-MyFireBase.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6S52777MVT;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = KZ254T2RPN;
 				INFOPLIST_FILE = MyFireBase/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Manjunath.MyFireBase;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = WildCardDevelopment;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
