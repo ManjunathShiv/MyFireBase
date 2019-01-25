@@ -17,7 +17,7 @@ class HomeViewController: BaseViewController {
     @IBOutlet var logoutButton : UIButton!
     
     override func viewDidLoad() {
-        logoutButton.setTitle("LoggedIn", for: .normal)
+        logoutButton.setTitle("Logout", for: .normal)
     }
     
     @IBAction func logoutButtonPresssed() {
